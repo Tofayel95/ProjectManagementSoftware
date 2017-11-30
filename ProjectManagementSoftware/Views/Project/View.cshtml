@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>	Project’s Detailed View:</h2>
+
+<form class="form-horizontal" id="form-User" method="POST">
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Name">Name:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Name" name="Name" readonly="" >
+        </div>
+        <div class="3"></div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Code"> Code Name :</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Code" name="Code" readonly="" >
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Description"> Description :</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Description" name="Description" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Status">Status :</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" id="Status" name="Status" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Start">Possible Start Date :</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" id="Start" name="Start" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="End">Possible End Date :</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" id="End" name="End" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Duration"> Duration:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Duration" name="Duration" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="File">File Upload :</label>
+        <div class="col-sm-6">
+            <input type="file" class="form-control" id="File" name="File">
+            <input type="submit" value="Upload" />
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Members"> Assigned Members:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Members" name="Members" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+    
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-default">Save</button>
+        </div>
+    </div>
+</form>

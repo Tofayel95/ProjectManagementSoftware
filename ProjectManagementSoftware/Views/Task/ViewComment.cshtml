@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "ViewComment";
+}
+
+<h2>View Comment of a Task</h2>
+
+<form class="form-horizontal" id="form-User" method="POST">
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Project">Project:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Project" name="Project" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Task"> Task :</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Task" name="Task" readonly="">
+        </div>
+        <div class="3"></div>
+    </div>
+    <div>
+        @Html.ActionLink("NewComment","Comment","Task")
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>Comment</th>
+                <th>By</th>
+                <th>DateTime</th>
+            </tr>
+           
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-default">Save</button>
+        </div>
+    </div>
+</form>
+

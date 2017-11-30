@@ -1,0 +1,180 @@
+﻿@using ProjectManagementSoftware.Models
+
+@{
+    ViewBag.Title = "Save";
+    List<Designation> designations = ViewBag.Designationlist;
+    List<UserDetails> details = ViewBag.UserInfo;
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<h2>Save</h2>
+
+<div>
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div >
+            <span >@ViewBag.SuccessMessage</span>
+        </div>
+
+    }
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="success ">
+            <span class="has-error" >@ViewBag.ErrorMessage</span>
+        </div>
+    }
+
+
+</div>
+
+<form class="form-horizontal" id="form-User" method="POST">
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Name">Name:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Name">
+        </div>
+        <div class="3"></div>
+    </div>
+   
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Email"> Email :</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter Email">
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Password">Password :</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Password" name="Password" placeholder="Enter Password">
+        </div>
+        <div class="3"></div>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Status">Status :</label>
+        <div class="col-sm-6">
+            @Html.RadioButton("Status", "Active", isChecked: true) @Html.Label("Active")
+            @Html.RadioButton("Status", "Inactive", isChecked: false) @Html.Label("Inactive   ")
+            @*<input type="text" class="form-control" id="Status"  name="Status" placeholder="Enter Status">*@
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="DesignationId">Designation:</label>
+        <div class="col-sm-6">
+
+            <select class="form-control" name="DesignationId" id="DesignationId">
+
+                <option value="">--Select  Designation--</option>
+                @foreach (var designation in designations)
+                {
+                    <option value="@designation.Id">@designation.Name</option>
+                }
+
+            </select>
+            
+            @*<select>
+                <option value="">--select--</option>
+                <option value="1" >IT Admin</option>
+                <option value="2">Developer</option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+            </select>*@
+        </div>
+       
+        <div class="3"></div>
+    </div>
+  
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-default">Save</button>
+        </div>
+    </div>
+</form>
+
+<div>
+
+
+
+    <div class="form-group">
+        <fieldset class="">
+            <legend >View All Users</legend>
+
+            <div>
+                <div>
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Password</th>                               
+                               
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var d in details)
+                            {
+                                <tr>
+                                   <td>@d.Name</td>
+                                   <td>@d.Email</td>
+                                   <td>@d.Password</td>
+                                   
+                                   
+                                    <td>@d.Status</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+
+
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    document.getElementById("Email").onkeyup = function () {
+        document.getElementById("Password").value = this.value + "123";
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#form-department").validate({
+            rules: {
+                Name: "required",
+                Email: "required",
+                Password: "required",
+                Status: "required",
+                DesignationId: "required",
+                
+            },
+            messages: {
+                Name: "Please Provide Name",
+                Email: "Please Provide Valid Email",
+                Password: "Please Provide Password",
+                Status: "Please Select Status",
+                DesignationId: "Please Select Designation",
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,63 @@
+﻿@using ProjectManagementSoftware.Models
+@model CommentAdd
+
+@{
+    ViewBag.Title = "Comment";
+
+    List<Project> projects = ViewBag.Projects;
+    List<TaskAdd> tasks = ViewBag.Tasks;
+    
+}
+
+<h2>Add Comment</h2>
+
+<form class="form-horizontal" id="form-User" method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="ProjectId">Select Project:</label>
+        <div class="col-sm-6">
+
+            <select class="form-control" name="ProjectId" id="ProjectId">
+                <option value="">--Select project--</option>
+                @foreach (var pr in projects)
+                {
+                    <option value="@pr.Id">@pr.Name</option>
+                }
+            </select>
+        </div>
+        <div class="3"></div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="TaskId"> Select Task :</label>
+        <div class="col-sm-6">
+
+            <select class="form-control" name="TaskId" id="TaskId">
+                <option value="">--Select --</option>
+                @foreach (var tk in tasks)
+                {
+                    <option value="@tk.Id">@tk.Description</option>
+                }
+            </select>
+
+
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Comment"> Comment :</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Comment" name="Comment" placeholder="Enter Comment">
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-default">Save</button>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,105 @@
+﻿@using ProjectManagementSoftware.Models
+@model UserViewModel
+
+@{
+    ViewBag.Title = "Assign";
+    List<Project> projects = ViewBag.Projects;
+    List<UserDetails> users = ViewBag.Persons;
+}
+
+<h2>Assign</h2>
+
+
+<div>
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div>
+            <span>@ViewBag.SuccessMessage</span>
+        </div>
+
+    }
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="success ">
+            <span class="has-error">@ViewBag.ErrorMessage</span>
+        </div>
+    }
+
+
+</div>
+
+<form class="form-horizontal" method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="ProjectId">Select Project:</label>
+        <div class="col-sm-6">
+
+            <select class="form-control" name="ProjectId" id="ProjectId">
+                <option value="">--Select project--</option>
+                @foreach (var pr in projects)
+                {
+                    <option value="@pr.Id">@pr.Name</option>
+                }
+            </select>
+        </div>
+        <div class="3"></div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="PersonrId"> Resource Person:</label>
+        <div class="col-sm-6">
+
+            <select class="form-control" name="PersonrId" id="PersonrId">
+                <option value="">--Select Person--</option>
+                @foreach (var per in users)
+                {
+                    <option value="@per.Id">@per.Name</option>
+                }
+            </select>
+        </div>
+        <div class="3"></div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <input type="submit" class="btn btn-default" value="Assign" />
+        </div>
+    </div>
+</form>
+
+@*<div class="form-group">
+
+        <div>
+            <div>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Resource Name</th>
+                            <th>Designation</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var m in models)
+                        {
+                            <tr>
+                                <td>@m.ProjectId</td>
+                                <td>@m.UserId</td>
+                              
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+</div>*@
+
+
+
